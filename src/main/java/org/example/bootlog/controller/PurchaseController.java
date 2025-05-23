@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.example.bootlog.model.dto.PurchaseDTO;
+import org.example.bootlog.model.entity.Purchase;
 import org.example.bootlog.service.PurchaseService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,7 +26,7 @@ public class PurchaseController {
     private final PurchaseService purchaseService;
 
     @PostMapping
-    public void purchase(@RequestBody PurchaseDTO purchaseDTO) {
+    public Purchase purchase(@RequestBody PurchaseDTO purchaseDTO) {
         log.debug("purchase 시작");
         System.out.println("purchase");
 //        logger.info("purchase");
@@ -45,5 +46,8 @@ public class PurchaseController {
             log.error(e.getMessage());
         }
         log.debug("purchase 종료");
+        Purchase purchaseResponse = new Purchase(purchaseDTO.name());
+        log.debug("{}", purchaseResponse);
+        return purchaseResponse;
     }
 }

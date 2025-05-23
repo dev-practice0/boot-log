@@ -1,8 +1,10 @@
 package org.example.bootlog.model.entity;
 
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 @Data
+@RequiredArgsConstructor
 public class Purchase {
-    String name;
+    final String name;
 }
