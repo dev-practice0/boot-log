@@ -8,3 +8,6 @@ logging:
         bootlog:
           controller: error
           service: error
+  file:
+    name: myapp.log
+    path: ./log
